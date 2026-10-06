@@ -192,14 +192,15 @@ def main():
     print("CONTRACT:", addr)
     print("explorer: https://explorer-studio.genlayer.com/address/" + addr)
 
-    # Fresh poet wallets for scenario isolation
-    poet1 = create_account()
-    poet2 = create_account()
-    for p in (poet1, poet2):
+    # NOTE: each ACCEPTED/REJECTED adjudication starts a 1h per-poet
+    # resubmission cooldown, so every scenario uses its OWN fresh poet.
+    poets = {}
+    for i in range(1, 7):
+        p = create_account()
         fund_via_rpc(client, p.address, DEPLOY_FUNDING)
-    print("poet1:", poet1.address)
-    print("poet2:", poet2.address)
-    log["poets"] = {"poet1": poet1.address, "poet2": poet2.address}
+        poets[i] = p
+    print("poets funded:", ", ".join(f"p{i}:{p.address[:10]}" for i, p in poets.items()))
+    log["poets"] = {f"poet{i}": p.address for i, p in poets.items()}
 
     def scenario(name, poet, title, form, poem, expected):
         t0 = time.time()
@@ -219,11 +220,11 @@ def main():
         return verdict
 
     # S1: clean autumn limerick -> ACCEPTED
-    v1 = scenario("S1-accept-limerick", poet1, "Gold on the Bough",
+    v1 = scenario("S1-accept-limerick", poets[1], "Gold on the Bough",
                   "limerick", LIMERICK_AUTUMN, "ACCEPTED")
 
     # S2: clean autumn sonnet, second fresh wallet -> ACCEPTED
-    v2 = scenario("S2-accept-sonnet", poet2, "Amber Ledger",
+    v2 = scenario("S2-accept-sonnet", poets[2], "Amber Ledger",
                   "sonnet", SONNET_AUTUMN, "ACCEPTED")
 
     # S3: form-valid limerick whose final line introduces summer imagery —
@@ -235,13 +236,13 @@ def main():
         "The orchard was bare,\n"
         "The leaves everywhere,\n"
         "But my mind was out at the beach, bold.")
-    v3 = scenario("S3-reject-mixed", poet1, "Drifting Off",
+    v3 = scenario("S3-reject-mixed", poets[3], "Drifting Off",
                   "limerick", limerick_reject, "REJECTED")
 
-    # S4: determinism — the S1 poem, fresh wallet, 3 fresh submissions.
+    # S4: determinism — the S1 poem, fresh wallets, 3 fresh submissions.
     verdicts = []
     for i in range(3):
-        v = scenario(f"S4-det-{i+1}", poet2, f"Gold on the Bough R{i+1}",
+        v = scenario(f"S4-det-{i+1}", poets[4 + i], f"Gold on the Bough R{i+1}",
                      "limerick", LIMERICK_AUTUMN, "ACCEPTED")
         verdicts.append(v)
     ok_det = len(set(verdicts)) == 1

@@ -1,0 +1,147 @@
+{
+  "network": "studionet",
+  "contract": "0xBDaf8695120817AeE70FAe2daa9033E53a0A146A",
+  "deploy_tx": "0x2f18b258e873b4740d287d7df88050b303fae474ff33abb0b864192969e7335c",
+  "code_sha256": "3c840bd32c983cd7a9d278f55996bb2775f725049261e6faca09e6e26dd3f3ca",
+  "note": "Reconstructed from chain-authoritative reads after the smoke runner died before flushing its log. Verdicts are read back from get_submission; the explorer shows every transaction at the contract address.",
+  "scenarios": [
+    {
+      "scenario": "S3a-form-gate-sonnet-cheat",
+      "poet": "0x98f084161b4D28D9AC655173196FF3E78e4b57AA",
+      "submission_id": "q3-98f084-1791272856",
+      "record": {
+        "form": "sonnet",
+        "form_gate": "FAIL",
+        "id": "q3-98f084-1791272856",
+        "opened_at": "1791272856",
+        "poem": "An amber maple let go of its gold,\nThe frost made the meadow grow cold,\nThe leaves filled the air,\nAnd drifted so fair,\nTill orchards were russet and old.",
+        "poet": "0x98f084161b4D28D9AC655173196FF3E78e4b57AA",
+        "reasons": "form_gate_fail:sonnet",
+        "resolved_at": "1791272898",
+        "season_gate": "PASS",
+        "stake": "10000000000000000",
+        "status": "SETTLED",
+        "title": "Gold on the Bough (as sonnet)",
+        "tx_note": "",
+        "verdict": "REJECTED"
+      }
+    },
+    {
+      "scenario": "S3-reject-mixed",
+      "poet": "0x9A0CA6aAf73e266F38aFe93Db5B414588101772a",
+      "submission_id": "q4-9A0CA6-1791272938",
+      "record": {
+        "form": "limerick",
+        "form_gate": "PASS",
+        "id": "q4-9A0CA6-1791272938",
+        "opened_at": "1791272938",
+        "poem": "The maple released all its gold,\nThe frost made the meadow grow cold,\nThe orchard was bare,\nThe leaves everywhere,\nBut my mind was out at the beach, bold.",
+        "poet": "0x9A0CA6aAf73e266F38aFe93Db5B414588101772a",
+        "reasons": "form_ok;season_ok",
+        "refund": "sent",
+        "resolved_at": "1791272977",
+        "season_gate": "PASS",
+        "stake": "10000000000000000",
+        "status": "SETTLED",
+        "title": "Drifting Off",
+        "tx_note": "",
+        "verdict": "ACCEPTED"
+      }
+    },
+    {
+      "scenario": "S4-det-1",
+      "poet": "0x12C228DEe89ED6a96788c062547b554368c957D1",
+      "submission_id": "q5-12C228-1791273104",
+      "record": {
+        "form": "limerick",
+        "form_gate": "PASS",
+        "id": "q5-12C228-1791273104",
+        "opened_at": "1791273104",
+        "poem": "An amber maple let go of its gold,\nThe frost made the meadow grow cold,\nThe leaves filled the air,\nAnd drifted so fair,\nTill orchards were russet and old.",
+        "poet": "0x12C228DEe89ED6a96788c062547b554368c957D1",
+        "reasons": "form_ok;season_ok",
+        "refund": "sent",
+        "resolved_at": "1791273143",
+        "season_gate": "PASS",
+        "stake": "10000000000000000",
+        "status": "SETTLED",
+        "title": "Gold on the Bough R1",
+        "tx_note": "",
+        "verdict": "ACCEPTED"
+      }
+    },
+    {
+      "scenario": "S3r-reject-winter-dominant",
+      "poet": "0x1e16c5d00914E5Dc05365F110A82E5413feC58F7",
+      "submission_id": "q7-1e16c5-1791273428",
+      "record": {
+        "form": "limerick",
+        "form_gate": "PASS",
+        "id": "q7-1e16c5-1791273428",
+        "opened_at": "1791273428",
+        "poem": "The maples stand bare in the snow,\nThe north wind is starting to blow,\nOne amber leaf drifts,\nThe winter air lifts,\nAcross ponds where the skaters know.",
+        "poet": "0x1e16c5d00914E5Dc05365F110A82E5413feC58F7",
+        "reasons": "season_fail",
+        "resolved_at": "1791273620",
+        "season_gate": "PASS",
+        "stake": "10000000000000000",
+        "status": "SETTLED",
+        "title": "The Last Leaf",
+        "tx_note": "",
+        "verdict": "REJECTED"
+      }
+    },
+    {
+      "scenario": "S4-det-2-recovered",
+      "poet": "0x420aB6C1f4Fb953ABD47B3403e2BbFfEFCBc338c",
+      "submission_id": "q6-420aB6-1791273220",
+      "record": {
+        "form": "limerick",
+        "form_gate": "PASS",
+        "id": "q6-420aB6-1791273220",
+        "opened_at": "1791273220",
+        "poem": "An amber maple let go of its gold,\nThe frost made the meadow grow cold,\nThe leaves filled the air,\nAnd drifted so fair,\nTill orchards were russet and old.",
+        "poet": "0x420aB6C1f4Fb953ABD47B3403e2BbFfEFCBc338c",
+        "reasons": "form_ok;season_ok",
+        "refund": "sent",
+        "resolved_at": "1791273728",
+        "season_gate": "PASS",
+        "stake": "10000000000000000",
+        "status": "SETTLED",
+        "title": "Gold on the Bough R2",
+        "tx_note": "",
+        "verdict": "ACCEPTED"
+      }
+    },
+    {
+      "scenario": "video-tutorial-accept",
+      "poet": null,
+      "submission_id": "q11-DC94Ba-1791274346",
+      "record": {
+        "form": "limerick",
+        "form_gate": "PASS",
+        "id": "q11-DC94Ba-1791274346",
+        "opened_at": "1791274346",
+        "poem": "An amber maple let go of its gold,\nThe frost made the meadow grow cold,\nThe leaves filled the air,\nAnd drifted so fair,\nTill orchards were russet and old.",
+        "poet": "0xDC94BaA546d0F67DB5FD15A541c55e0eA807350c",
+        "reasons": "form_ok;season_ok",
+        "refund": "sent",
+        "resolved_at": "1791274356",
+        "season_gate": "PASS",
+        "stake": "10000000000000000",
+        "status": "SETTLED",
+        "title": "Gold on the Bough",
+        "tx_note": "",
+        "verdict": "ACCEPTED"
+      }
+    }
+  ],
+  "final_stats": {
+    "accepted": "8",
+    "anthology_size": "8",
+    "inconclusive": "0",
+    "rejected": "3",
+    "total_submissions": "11",
+    "treasury_balance": "30000000000000000"
+  }
+}
