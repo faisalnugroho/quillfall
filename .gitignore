@@ -1,0 +1,4 @@
+scripts/smoke_deployer.json
+scripts/deployed_studionet.json
+__pycache__/
+.pytest_cache/
